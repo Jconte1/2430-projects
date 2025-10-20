@@ -44,10 +44,10 @@ export default function Home() {
   const unionRes = union(A, B);          // in a or b or both
   const interRes = intersection(A, B);   // only in both a and b
   const diffRes = difference(A, B);      // in a but not in b
-  const xorRes = symmetricDifference(A, B); // in a or b but not both (exclusive)
+  const xorRes = symmetricDifference(A, B); // in a or b but not both 
 
   /*
-    multiset section (frequency arrays)
+    frequency arrays
     - here numbers are counts. like how many apples etc
     - counts are >= 0 
   */
@@ -61,14 +61,14 @@ export default function Home() {
   // IE: apple x1, banana x2, pear x1, orange x4
   const BM = [1, 2, 0, 1, 4];
 
-  // do the multiset math (works element-by-element)
+  // do the multiset math 
   const mU = mUnion(AM, BM);        // max of each position
   const mI = mIntersection(AM, BM); // min of each position
   const mD = mDifference(AM, BM);   // a - b but clamp at 0
   const mAdd = mAddition(AM, BM);     // add counts
 
   /*
-    displays a row of "chips"
+    displays a row 
     - title shows what operation this is
     - items is the pretty list (labels) we already converted
     
@@ -78,14 +78,11 @@ export default function Home() {
       <h3 className={styles.h3}>
         {title}
       </h3>
-
-      {/* the line with the chips */}
       <div className={styles.row}>
         {items.length === 0
-          ? <span className={styles.empty}>∅ (empty)</span> // empty set symbol. 
+          ? <span className={styles.empty}>∅ (empty)</span>
           : items.map((x, i) => (
             <span key={i} className={styles.badge}>
-              {/* show the actual element label */}
               {x}
             </span>
           ))
@@ -95,9 +92,8 @@ export default function Home() {
   );
 
   /*
-    page layout notes:
     - first card: show inputs 
-    - then show each operation result as a chip list
+    - then show each operation result as a list
     - then switch to multiset, show inputs and results
     - formatting is black/white only so super readable
   */
@@ -108,11 +104,11 @@ export default function Home() {
         Programming Project 1 — Sets & Multisets
       </h1>
 
-      {/* reminder card so future me remembers what u/a/b are */}
+
       <section className={styles.card}>
         <h2 className={styles.subTitle}>universe & inputs (sets)</h2>
 
-        {/* code-style block so the arrays line up nice */}
+
         <pre className={styles.code}>
           {`u = [${U.join(", ")}]
 
@@ -126,7 +122,7 @@ b = { ${showSet(B, U).join(", ")} }
         </pre>
       </section>
 
-      {/* results for set operations (converted to labels for easy reading) */}
+      {/* results for set operations*/}
       <List title="not(a)" items={showSet(notARes, U)} />
       <List title="a ∪ b" items={showSet(unionRes, U)} />
       <List title="a ∩ b" items={showSet(interRes, U)} />
@@ -150,7 +146,7 @@ b (counts) = [${BM.join(", ")}]
         </pre>
       </section>
 
-      {/* multiset result block (kept in code style so alignment is nice) */}
+      {/* multiset result block  */}
       <section className={styles.card}>
         <h3 className={styles.h3}>results (multisets)</h3>
         <pre className={styles.code}>
