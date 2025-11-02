@@ -52,7 +52,7 @@ export const mDifference = (A, B) =>
   A.map((a, i) => Math.max(0, a - B[i]));
 
 export const mAddition = (A, B) =>
-  // element-wise add (bag sum)
+  // element-wise add bag sum
   A.map((a, i) => a + B[i]);
 
 export const expandMulti = (freqs, U) =>
